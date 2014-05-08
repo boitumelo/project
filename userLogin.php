@@ -92,48 +92,43 @@
 		</footer>
 		  
 <?php 
+
+
+session_start();
+
 $firstName=strtoupper($_POST['firstName']);
+$pass=$_POST['password'];	
 
-$pass=$_POST['password'];
+//to protect MySQL injection
+$firstName = stripslashes($firstName);
+$pass = stripslashes($pass);
+$firstName = mysql_real_escape_string($firstName);
+$pass = mysql_real_escape_string($pass);
 
-/*if (!$fname ||  || !$surname || !$email || !$select || !$address || !$id || !$pass)
-{
-	echo "fill all the required fields";
-	exit;
-}*/
-$conn=mysql_connect('localhost','projects','bags');
-
-	if(!$conn)
-	{
-	echo 'Could not connect to the database';	
-	exit;
-	}
+if($firstName && $pass)
+{	
+	$connect = mysqli_connect ('localhost', 'projects','bags', 'c&tbags_db') or die ("Couldnt connect to the database");
 	
-	$db = mysql_SELECT_db('c&tbags_db');
+	$query = 'SELECT * FROM user WHERE FIRST_NAME="'.$firstName.'" AND PASSWORD ="'.md5($pass).'"';
+	
+	$result = mysqli_query ($connect, $query) or die (mysql_error());
 
-	if(!$db)
-{
-	echo 'Database selection failed';	
-	exit;
+	$numrows = mysqli_num_rows($result);
+	
+	if ($numrows != 0)
+	{	
+		header("Location: home.php");
+		$_SESSION['username'] = $firstName;
+	}
+	else
+	{
+		die ("Username doesn't exist");
+	}
 }
-
-	$insert="insert into login values(null, '$firstName','$pass')";
- 
-$results = mysql_query($insert);
-
-if(!$results)
+else
 {
-	echo 'submission failed';	
-	exit;
+	die ("Please enter a username and password");	
 }
-
-echo mysql_affected_rows($conn)."Admin Logged in";
-
-
-
-
-
-
 
  ?>
 
