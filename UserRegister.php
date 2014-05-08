@@ -114,6 +114,7 @@
           </form>
 	
 <?php 
+
 $firstName=strtoupper($_POST['firstName']);
 $surname=strtoupper($_POST['surname']);
 $cell=$_POST['cell'];
@@ -122,6 +123,7 @@ $co=$_POST['country'];
 $city=$_POST['city'];
 $add=$_POST['address'];
 $pass=$_POST['password'];
+$pass1=$_POST['password1'];
 
 $conn=mysql_connect('localhost','projects','bags');
 
@@ -138,18 +140,18 @@ $conn=mysql_connect('localhost','projects','bags');
 	echo 'Database selection failed';	
 	exit;
 }
-$query="insert into customer values (null, '$firstName','$surname','$cell',,'$email',$co','$city','$add','$pass')";
+$insert="insert into customer values(null, '$firstName','$surname','$pass','$email','$co','$city','$add','$pass')";
+  echo $query;
  
-$rr = mysql_query($query);
+$results = mysql_query($insert);
 
-if(!$rr)
+if(!$results)
 {
 	echo 'submission failed';	
 	exit;
 }
 
-echo mysql_affected_rows($conn)."User added ";
-
+echo mysql_affected_rows($conn)."user added in";
  ?>
 	
 
