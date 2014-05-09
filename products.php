@@ -1,357 +1,126 @@
-
 <?php
-	include("includes/db.php");
-	include("includes/functions.php");
-	
-	if($_REQUEST['command']=='add' && $_REQUEST['PRODUCT ID']>0){
-		$pid=$_REQUEST['PRODUCT ID'];
-		addtocart($pid,1);
-		header("location:cart.php");
-		exit();
-	}
+session_start();
+include_once("config.php");
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="External.css" />
-  
-<script language="javascript">
-	function addtocart(pid){
-		document.form1.productid.value=pid;
-		document.form1.command.value='add';
-		document.form1.submit();
-	}
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Shopping Cart</title>
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
 </head>
 
-
 <body>
-
 <div id="box1" align="center">
-<div id="FormatNavBar">
-        <p align="right"><a href="home.php" target="_top">Home</a> || <a href="about.php" target="_top">About Us</a> ||<a href="UserRegister.php" target="_top">Register</a> || <a href="contact.php">Contact Us</a></p>
-        </div><form name="form1">
-	<input type="hidden" name="productid" />
-    <input type="hidden" name="command" />
-</form>
-<div align="center">
-	<h1 align="center">Products</h1>
-	<center><table >
-		<?
-			$result=mysql_query("select * from product");
-			while($row=mysql_fetch_array($result)){
-		?>
-    	<tr>
-        	<td><img src="images/107842_8_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Reebok travelling bag<?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
+<form name="fbsearch" method="get" action="http://ss779.fusionbot.com/b/q" style="margin:0;">
+  <div align="right"><font size="2" face="arial"><a href="http://www.fusionbot.com" target="_blank">Search C&T Bags</a>:</font><br />
+  <input type="text" name="keys" size="15">
+  <input type="submit" value="GO"><br />
+  <input type="hidden" name="sitenbr" value="162553863">
+  </div>
+</form> 
+  	<div id ="box1" align ="right">
+	<a href="products.php" title="Buy " style="background-image:url(cart.jpg);width:140px;height:140px;display:block;">Buy<br/></a></td><p id="mainnav">
+	</div>
 		
-        	<td><img src="images/205531_25_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Perry luggage bag<?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>300</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-					<tr>
-        	<td><img src="images/203051_1_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Adidas bagpack<?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>220</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		
-			</td>
-		
-		
-		<td><img src="images/213180_5_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Guess luggage bag<?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>550</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		
-			</td>
-		
-		
-		<td><img src="images/213188_7_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Gucci liggage bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>750</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		
-			</td>
-		</tr>
-		
-		<td><img src="images/213446_3_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Nike sports bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		
-			</td>
-		</tr>
-		
-		<td><img src="images/224335_1_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Eagle bagpack bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/234903_1_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Wert schoolbag <?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/237250_4_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Reebok laptop bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>350</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/239307_3_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Nike laptop bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>450</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/250595_14_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Puma sports bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/260530_2_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Adidas travelling bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/260641_3_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Kway sports bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/269181_2_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Levi handbag <?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>200</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/270005_1_3.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Nike sports bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>255</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
+				<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <!-- Be sure to leave the brand out there if you want it shown -->
+      
+	  <a class="brand" href="home.php">Home</a>
+	  <a class="brand" href="contact.php">Contact Us</a>
+	  <a class="brand" href="userLogin.php">Login</a>
+	  <a class="brand" href="UserRegister.php">Register</a>
+	<a class="brand" href="about.php">About Us</a>
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+      </div>
+ 
+    </div>
+  </div>
+</div>
+<div id="products-wrapper">
+    <h1>Products</h1>
+	<table class="table">
+    <div class="products">
+    <?php
+    //current URL of the Page. cart_update.php redirects back to this URL
+	$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    
+	$mysql=("SELECT * FROM products ");
+	$results = mysql_query($mysql);
+    if ($results) { 
 	
-		
-		<td><img src="images/271289_2_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Gucci handbag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/273085_1_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Guess handbag <?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>350</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/273517_3_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Nike travel bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>450</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		
-			</td>
-		
-		
-		<td><img src="images/273612_4_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Perry handbag<?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/273621_2_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		SissyBoy handbag<?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/274110_1_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Reebok handbag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>190</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/274118_4_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Levis handbag<?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		</tr>
-			</td>
-		</tr>
-		
-		<td><img src="images/274325_2_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Guess handbag <?=$row['description']?><br />
-                    Price:<big style="color:yellow">
-                    	R<?=$row['price']?>455</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		
-			</td>
-		
-		
-		<td><img src="images/274427_3_1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Guess handbag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>355</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-			</td>
-		
-			</td>
-		
-		
-		<td><img src="images/20131021_LG-cert-b2s1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Nike luggage bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>550</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-					</td>
-		</tr>
+        //fetch results set as object and output HTML
+        while($obj = mysql_fetch_object($results))
+        {
+			echo '<div class="product">'; 
+            echo '<form method="post" action="cart_update.php">';
+			echo '<div class="product-thumb"><img width = "85" src="images/'.$obj->product_img_name.'"></div> ';
+            echo '<div class="product-content"><h3>'.$obj->product_name.'</h3>';
+			//echo '</br>';
+            echo '<div class="product-desc">'.$obj->product_desc.'</div>';
+            //echo '</br>';
+			echo '<div class="product-info">';
+			echo 'Price '.$currency.$obj->price.' | ';
 			
-		</tr>
-		
-		
-		<td><img src="images/20131021_LG-cert-b3s1.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Reebok luggage bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>1250</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-				</td>
-		</tr>
-			</td>
-		</tr>
-		
-		
-		
-		<td><img src="images/20140401_BP_VN4.jpg" /></td>
-            <td>   	<b><?=$row['name']?></b><br />
-            		Aliys bagpack bag<?=$row['description']?><br />
-                    Price:<big style="color:green">
-                    	R<?=$row['price']?>135</big><br /><br />
-                    <input type="button" value="Add to Cart" onclick="addtocart(<?=$row['serial']?>)" />
-				</td>
-		</tr>
-			</td>
-		</tr>
-		
-				
-        <tr><td colspan="2"><hr size="1" /></td>
+            echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
+			echo '<button class="add_to_cart">Add To Cart</button>';
+			echo '</div></div>';
+            echo '<input type="hidden" name="product_code" value="'.$obj->product_code.'" />';
+            echo '<input type="hidden" name="type" value="add" />';
+			echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
+            echo '</form>';
+            echo '</div>';
+        }
+    
+    }
+    ?>
+    </div>
+	</table>
+    
+<div class="shopping-cart">
+<h2>Your Shopping Cart</h2>
+<?php
+if(isset($_SESSION["products"]))
+{
+    $total = 0;
+    echo '<ol>';
+    foreach ($_SESSION["products"] as $cart_itm)
+    {
+        echo '<li class="cart-itm">';
+        echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>';
+        echo '<h3>'.$cart_itm["name"].'</h3>';
+        echo '<div class="p-code">P code : '.$cart_itm["code"].'</div>';
+        echo '<div class="p-qty">Qty : '.$cart_itm["qty"].'</div>';
+        echo '<div class="p-price">Price :'.$currency.$cart_itm["price"].'</div>';
+        echo '</li>';
+        $subtotal = ($cart_itm["price"]*$cart_itm["qty"]);
+        $total = ($total + $subtotal);
+    }
+    echo '</ol>';
+    echo '<span class="check-out-txt"><strong>Total : '.$currency.$total.'</strong> <a href="view_cart.php">Check-out!</a></span>';
+	echo '<span class="empty-cart"><a href="cart_update.php?emptycart=1&return_url='.$current_url.'">Empty Cart</a></span>';
+}else{
+    echo 'Your Cart is empty';
+}
+?>
+</div>
+    
+</div>
 
-        <? } ?>
-		 
-    </table>
-	<input type="button" value="Buy" onclick="addtocart(<?=$row['serial']?>)" action ="cart.php"/>
-		
-</div><footer>
-			<div id="Format">
-
-			<p><I>C&T bags &copy; 2014 All Rights Reserved</I></p>
-			</div>
-		</footer>
 </body>
 </html>
