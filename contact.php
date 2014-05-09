@@ -4,15 +4,52 @@
 <head>
 <link rel="stylesheet" type="text/css" href="External.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Untitled Document</title>
+<title>Contact C&T Bags</title>
+ <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <div align="center" id = "box1">
-      <td width="545" height="355"><form id="form1" name="form1" method="post" action="products.php">
-      <div id="FormatNavBar">
-        <p align="right"><a href="home.php" target="_top">Home</a> || <a href="userLogin.php">Login</a> <a href="about.php" target="_top">About Us</a> ||<a href="UserRegister.php" target="_top">Register</a></p>
+<form name="fbsearch" method="get" action="http://ss779.fusionbot.com/b/q" style="margin:0;">
+  <div align="right"><font size="2" face="arial"><a href="http://www.fusionbot.com" target="_blank">Search C&T Bags</a>:</font><br />
+  <input type="text" name="keys" size="15">
+  <input type="submit" value="GO"><br />
+  <input type="hidden" name="sitenbr" value="162553863">
+  </div>
+<div align="right" id = "box1">
+<a href="products.php" title="Buy " style="background-image:url(cart.jpg);width:140px;height:140px;display:block;">Buy<br/></a></td><p id="mainnav">
+</div>
+
+	<h1>C&T Bags</h1>
+		<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <!-- Be sure to leave the brand out there if you want it shown -->
+      
+	  <a class="brand" href="home.php">Home</a>
+	  <a class="brand" href="userLogin.php">Login</a>
+	  <a class="brand" href="products.php">Gallery</a>
+	  <a class="brand" href="UserRegister.php">Register</a>
+	<a class="brand" href="about.php">About Us</a>
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
       </div>
+ 
+    </div>
+  </div>
+</div>
       <blockquote>
           <blockquote>
             <p align="left">&nbsp;</p>
