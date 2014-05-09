@@ -17,13 +17,15 @@
 				font-family:arial,tahomahelvetica,sans-serif;
 				font-size:19;
 				
-				background-color:brown;
+				background-color:light-blue;
 			}
 			
 		/*"Formating background*/	
 		#Format {
 					text-align:center;
-					background:yellow;
+					font: #ffffff;
+					color: white;
+					background:black;
 					
 					}
 					#format{
@@ -43,7 +45,7 @@
 					background:yellow;
 					}
 					#mainnav{
-						text-align:right;
+						text-align: right-side;
 						
 					}
 						
