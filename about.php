@@ -2,18 +2,56 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>Desmondi Cafeteria</title>
+		<title>About C&T Bags</title>
+		 <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
 	    <link rel="stylesheet" type="text/css" href="External.css" />
 	</head> 
-	<body>
-	<div id="box1">
+</form>
+<body>
+	
+	<div align = "right" id="box1">
+	<form name="fbsearch" method="get" action="http://ss779.fusionbot.com/b/q" style="margin:0;">
+  <div align="right"><font size="2" face="arial"><a href="http://www.fusionbot.com" target="_blank">Search C&T Bags</a>:</font><br />
+  <input type="text" name="keys" size="15">
+  <input type="submit" value="GO"><br />
+  <input type="hidden" name="sitenbr" value="162553863">
+  </div>
+	<a href="products.php" title="Buy " style="background-image:url(cart.jpg);width:140px;height:140px;display:block;">Buy<br/></a></td><p id="mainnav">
+	</div>
+	<div align = "center" id="box1">
+	<h1>C&T Bags</h1>
+		<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
 
-		<div id="backcolour">
-			<a href="home.php"><img src="WP_002011.JPG" width="350" height="199" alt="Vefa Internet cafe"/></a>
-				<p>Best Online shop  Ever....</p>
-			      <div id="FormatNavBar">
+      <!-- Be sure to leave the brand out there if you want it shown -->
+      
+	  <a class="brand" href="home.php">Home</a>
+	  <a class="brand" href="contact.php">Contact Us</a>
+	  <a class="brand" href="products.php">Gallery</a>
+	  <a class="brand" href="UserRegister.php">Register</a>
+	<a class="brand" href="about.php">About Us</a>
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+      </div>
+ 
+    </div>
+  </div>
+</div>
+			      <!--<div id="FormatNavBar">
         <p align="right"><a href="home.php" target="_top">Home</a> || <a href="userLogin.php">Login</a> || <a href="UserRegister.html" target="_top">Register</a> ||  <a href="contact.php">Contact Us</a></p>
-        </div>
+        </div>-->
 				<div class="maintext">
 				
 					<h3>About us</h3>
