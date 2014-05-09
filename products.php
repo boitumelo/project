@@ -69,7 +69,7 @@ include_once("config.php");
         {
 			echo '<div class="product">'; 
             echo '<form method="post" action="cart_update.php">';
-			echo '<div class="product-thumb"><img width = "85" src="images/'.$obj->product_img_name.'"></div> ';
+			echo '<div class="product-thumb"><img width = "85" src="'.$obj->product_img_name.'"></div> ';
             echo '<div class="product-content"><h3>'.$obj->product_name.'</h3>';
 			//echo '</br>';
             echo '<div class="product-desc">'.$obj->product_desc.'</div>';
